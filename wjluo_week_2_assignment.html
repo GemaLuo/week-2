@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <title>week-2-assignment</title>
+    </head>
+    <body>
+        <script>
+            //要求一
+            function calculate(min, max, step){
+                let ans=0;
+                for(let a=min;a<=max;a+=step){
+                    ans+=a;                                       
+                }
+                console.log(ans);
+            }
+            calculate(1,3,1); //計算出1+2+3
+            calculate(4,8,2); //計算出4+6+8
+            calculate(-1,2,2); //計算出-1+1
+
+            //要求二 非manager員工平均薪資
+            function avg(data){
+                let sum=0;
+                let staff=0;
+                let ppldata=data["employees"];
+                for(let ppl of ppldata){
+                    if (ppl["manager"]==false){
+                        sum=sum+ppl["salary"];
+                        staff=staff+1;
+                    }
+                }
+                console.log(sum/staff);
+            }
+            data={
+                "employees":[
+                    {
+                        "name":"John",
+                        "salary":30000,
+                        "manager":false
+                    },
+                    {
+                        "name":"Bob",
+                        "salary":60000,
+                        "manager":true
+                    },
+                    {
+                        "name":"Jenny",
+                        "salary":50000,
+                        "manager":false
+                    },
+                    {
+                        "name":"Tony",
+                        "salary":40000,
+                        "manager":false
+                    }
+                ]
+            }
+            avg(data);
+
+            //要求三 
+            function func(a){
+                return function(b,c){
+                    console.log(a+(b*c));
+                }
+            }
+
+            func(2)(3, 4); // 你補完的函式能印出 2+(3*4) 的結果 14
+            func(5)(1, -5); // 你補完的函式能印出 5+(1*-5) 的結果 0
+            func(-3)(2, 9); // 你補完的函式能印出 -3+(2*9) 的結果 15
+// 一般形式為 func(a)(b, c) 要印出 a+(b*c) 的結果
+
+            //要求四-兩兩數字相乘最大值
+            
+            function maxProduct(nums){
+                let max=-100000;
+                var product;
+                for (var a=0; a<nums.length; a++){
+                    for (var b=a+1; b<nums.length; b++){
+                        product=nums[a]*nums[b];
+                        if (product>max){
+                            max=product;
+                        }
+                    }
+                }
+                console.log(max);
+            }
+            
+            maxProduct([5, 20, 2, 6]) // 得到 120
+            maxProduct([10, -20, 0, 3]) // 得到 30
+            maxProduct([10, -20, 0, -3]) // 得到 60
+            maxProduct([-1, 2]) // 得到 -2
+            maxProduct([-1, 0, 2]) // 得到 0 或 -0
+            maxProduct([5, -1, -2, 0]) // 得到 2
+            maxProduct([-5, -2]) // 得到 10 
+               
+
+            //要求五
+            
+            function twoSum(nums, target){
+                for (var a=0;a<nums.length;a++){
+                    for (var b=a+1;b<nums.length;b++){
+                        let c=nums[a];
+                        let d=nums[b];
+                        if (c+d==target){
+                           return[a,b];
+                        }           
+                    }
+                }
+            }
+            let result=twoSum([2, 11, 7, 15], 9);
+            console.log(result); // show [0, 2] because nums[0]+nums[2] is 9
+            
+        </script>
+    </body>
+</html>
