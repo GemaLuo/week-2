@@ -4,7 +4,8 @@
         <meta charset="utf-8" />
         <title>week-2-assignment</title>
         <script type="text/javascript">
-    
+            //使用變數前都要進行變數的宣告!
+            //變數宣告使用的關鍵字統一使用 var 或 let，不要混著用!
         
             //要求一
             function calculate(min, max, step){
@@ -73,9 +74,9 @@
             
             function maxProduct(nums){
                 let max=-Infinity;
-                var product;
-                for (var a=0; a<nums.length; a++){
-                    for (var b=a+1; b<nums.length; b++){
+                let product;
+                for (let a=0; a<nums.length; a++){
+                    for (let b=a+1; b<nums.length; b++){
                         product=nums[a]*nums[b];
                         if (product>max){
                             max=product;
@@ -95,10 +96,9 @@
                
 
             //要求五
-            
             function twoSum(nums, target){
-                for (var a=0; a<nums.length; a++){
-                    for (var b=a+1; b<nums.length; b++){
+                for (let a=0; a<nums.length; a++){
+                    for (let b=a+1; b<nums.length; b++){
                         let c=nums[a]+nums[b]
                         if (c==target){
                            return[a,b];
